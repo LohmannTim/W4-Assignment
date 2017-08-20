@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Weekend 4 Assignment</title>
+        <script src= "vendors/angular.min.js"></script>
+        <script src= "client.js"></script>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body ng-app="RecordsApp" ng-controller="Recordscontroller as vm">
+        <h1>Employee Records App!!</h1>
+        <div id="EmpRecordsFields">
+            <input type="text" name="firstName" placeholder="First Name" ng-model="vm.newRecord.firstName">
+            <input type="text" name="lastName" placeholder="Last Name" ng-model="vm.newRecord.lastName">
+            <input type="text" name="idNumber" placeholder="ID Number" ng-model="vm.newRecord.idNumber">
+            <input type="text" name="jobTitle" placeholder="Job Title" ng-model="vm.newRecord.jobTitle">
+            <input type="text" name="annualSalary" placeholder="Annual Salary" ng-model="vm.newRecord.salary">
+            <button id="sendMessageButton" ng-click ="vm.postNewEmployee()">Send</button>
+        </div>
+        <p>{{vm.records}}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="records in vm.records">
+                <td>{{records.firstName}}</td>
+                <td>{{records.lastName}}</td>
+                <td>{{records.idNumber}}</td>
+                <td>{{records.jobTitle}}</td>
+                <td>{{records.salary}}</td>
+
+
+            </tr>
+        </tbody>
+    </table>
+    </body>
+</html>
