@@ -7,11 +7,13 @@ app.controller('RecordsController', ['$http', function($http){
     console.log('Records controller has been loaded');
     var self = this;
     self.records = [];
+    self.newRecord= {};
+    
     
     self.getRecords = function() {
         $http({
             method: 'GET',
-            url: '/record'
+            url: '/records'
     }).then(function(response){
             console.log(response);
             console.log(response.data);
@@ -20,9 +22,11 @@ app.controller('RecordsController', ['$http', function($http){
     }; // end of getRecords
 
     self.postNewRecord = function() {
+        console.log('posting record');
+        
         $http({
             method: 'POST',
-            url: '/record',
+            url: '/records',
             data: self.newRecord
         }).then(function(response){
             console.log(response);
@@ -31,4 +35,17 @@ app.controller('RecordsController', ['$http', function($http){
         });
     };
   self.getRecords();
+
+  self.getSum = function() {
+    $http({
+        method: 'GET',
+        url: '/records/sum'
+}).then(function(response){
+        console.log(response);
+        console.log(response.data);
+        self.sum = response.data[0].sum;
+        
+}); //end of http
+}; // end of getRecords
+self.getSum();
 }]);

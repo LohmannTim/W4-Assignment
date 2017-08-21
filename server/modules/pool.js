@@ -1,7 +1,7 @@
 var pg = require('pg');
 
 var config = {
-	database: 'employeeRecords', // the name of the database
+	database: 'employee-records', // the name of the database
 	host: 'localhost', // where your database is located
 	port: 5432, // the port number for your database
 	max: 10, // the number of connections allowed at a time
